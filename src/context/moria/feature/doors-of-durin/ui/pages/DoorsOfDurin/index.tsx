@@ -8,12 +8,14 @@ export const DoorsOfDurinPage = () => {
 
   return (
     <div>
-      <Ithildin viewState={}></Ithildin>
+      <Ithildin viewState={viewState.ithildin}>Something</Ithildin>
       <Input
-        value={viewState}
-        onChange={(el) => onChange(el.currentTarget.value)}
+        value={viewState.codeInput.value}
+        onChange={(el) => onChange(el.target.value)}
       />
-      <Button />
+      <Button disabled={viewState.enterButton.disabled}>
+        {viewState.enterButton.label}
+      </Button>
     </div>
   );
 };

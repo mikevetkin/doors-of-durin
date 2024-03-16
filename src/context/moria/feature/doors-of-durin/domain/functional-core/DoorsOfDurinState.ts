@@ -2,12 +2,12 @@
  * В каких состояниях может находится система
  */
 export interface DoorsOfDurinState {
-  name: string;
+  code: string;
 }
 
 export const doorsOfDurinState = (
   data: Partial<DoorsOfDurinState> = {}
 ): DoorsOfDurinState => ({
-  name: '',
+  code: '',
   ...data,
 });
