@@ -1,4 +1,4 @@
-import { DoorsOfDurinEvent } from './DoorsOfDurinEvent';
+import { DoorsOfDurinEvent, SayCodeEvent } from './DoorsOfDurinEvent';
 import { DoorsOfDurinState } from './DoorsOfDurinState';
 
 /**
@@ -9,15 +9,21 @@ export const doorsOfDurinReducer = (
   event: DoorsOfDurinEvent
 ) => {
   switch (event.type) {
-    case 'SayNameEvent':
-      return sayName(state);
+    case 'SayCodeEvent':
+      return sayName(state, event);
     case 'EnterEvent':
       return enterEvent(state);
   }
 };
 
-function sayName(state: DoorsOfDurinState): DoorsOfDurinState {
-  return state;
+function sayName(
+  state: DoorsOfDurinState,
+  event: SayCodeEvent
+): DoorsOfDurinState {
+  return {
+    ...state,
+    code: event.value,
+  };
 }
 
 function enterEvent(state: DoorsOfDurinState): DoorsOfDurinState {

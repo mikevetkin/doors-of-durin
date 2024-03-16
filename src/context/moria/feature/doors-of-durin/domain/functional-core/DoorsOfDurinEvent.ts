@@ -1,5 +1,5 @@
-export interface SayNameEvent {
-  type: 'SayNameEvent';
+export interface SayCodeEvent {
+  type: 'SayCodeEvent';
   value: string;
 }
 
@@ -11,4 +11,4 @@ export interface EnterEvent {
 /**
  * Какие события могут происходить в системе
  */
-export type DoorsOfDurinEvent = SayNameEvent | EnterEvent;
+export type DoorsOfDurinEvent = SayCodeEvent | EnterEvent;

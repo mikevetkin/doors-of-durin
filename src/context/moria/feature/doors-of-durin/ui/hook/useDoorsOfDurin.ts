@@ -11,7 +11,7 @@ export const useDoorsOfDurin = () => {
 
   const onChange = (value: string) => {
     return dispatch({
-      type: 'SayNameEvent',
+      type: 'SayCodeEvent',
       value,
     });
   };
