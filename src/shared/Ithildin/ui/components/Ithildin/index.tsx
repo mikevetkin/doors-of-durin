@@ -7,5 +7,11 @@ interface IthildinProps {
 }
 
 export const Ithildin: React.FC<IthildinProps> = ({ children, viewState }) => {
-  return <div>{children}</div>;
+  return (
+    <div
+      className={`${viewState.isGlow ? 'text-white drop-shadow-[0_0_10px_rgba(109,106,255,1)]' : 'text-gray-900'}`}
+    >
+      {children}
+    </div>
+  );
 };

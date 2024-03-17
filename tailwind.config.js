@@ -9,6 +9,19 @@ module.exports = {
   ],
   prefix: '',
   theme: {
+    fontFamily: {
+      mono: [
+        'Tengwar Parmaite',
+        'Tengwar Annatar',
+        'Tengwar Quenya',
+        'Tengwar Formal',
+        'Tengwar Eldamar',
+        'Tengwar Noldor',
+        'Tengwar Elfica',
+        'Tengwar Sindarin',
+        'Tengwar Gothika',
+      ],
+    },
     container: {
       center: true,
       padding: '2rem',

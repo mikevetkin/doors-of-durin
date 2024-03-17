@@ -8,7 +8,9 @@ export const doorsOfDurinPresentation = (
   state: DoorsOfDurinState
 ): DoorsOfDurinViewState => {
   return new DoorsOfDurinViewState({
-    ithildin: new IthildinViewState(),
+    ithildin: new IthildinViewState({
+      isGlow: true,
+    }),
     codeInput: new InputViewState({
       value: state.code,
       disabled: false,
