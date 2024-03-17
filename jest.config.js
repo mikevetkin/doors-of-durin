@@ -18,4 +18,5 @@ export default {
   automock: false,
   resetMocks: false,
   verbose: true,
+  setupFilesAfterEnv: ['jest-chain'],
 };
