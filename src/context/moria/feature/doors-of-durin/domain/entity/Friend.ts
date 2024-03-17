@@ -6,7 +6,10 @@ export class Friend {
 
   static parse(code: string): Result<Friend, AppError> {
     try {
-      if (code.length !== 0 && (code === 'mellon' || code === 'мэллон')) {
+      if (
+        code.length !== 0 &&
+        (code === 'mellon' || code === 'мэллон' || code === 'tj¸$5^')
+      ) {
         return Result.ok(new Friend(code));
       }
 
