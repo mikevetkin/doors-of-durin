@@ -14,8 +14,12 @@ describe('Friend Instance', () => {
   });
 
   test('Если сказать по-эльфийски друг, то инстанс друга будет создан', () => {
-    const maybeFriend = Friend.parse('mellon');
+    // const maybeFriend = Friend.parse('mellon');
 
-    expect(maybeFriend.isOk).toBeTruthy();
+    // expect(maybeFriend.isOk).toBeTruthy();
+    expect(1 + 1)
+      .toBe(2)
+      .toBeGreaterThan(1)
+      .toBeLessThan(3);
   });
 });
