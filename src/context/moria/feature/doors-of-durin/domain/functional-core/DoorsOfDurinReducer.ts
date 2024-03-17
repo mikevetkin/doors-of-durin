@@ -1,3 +1,4 @@
+import { Friend } from '../entity/Friend';
 import { DoorsOfDurinEvent, SayCodeEvent } from './DoorsOfDurinEvent';
 import { DoorsOfDurinState } from './DoorsOfDurinState';
 
@@ -27,5 +28,14 @@ function sayName(
 }
 
 function enterEvent(state: DoorsOfDurinState): DoorsOfDurinState {
+  const frientResult = Friend.parse(state.code);
+
+  if (frientResult.isOk) {
+    return {
+      ...state,
+      traveller: frientResult.value,
+    };
+  }
+
   return state;
 }
