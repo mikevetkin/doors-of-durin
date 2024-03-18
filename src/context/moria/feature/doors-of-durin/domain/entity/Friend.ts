@@ -1,20 +1,17 @@
 import { AppError } from '@/core/appError/domain/entity/appError';
-import Result from 'true-myth/result';
+import Result, { Ok } from 'true-myth/result';
 
 export class Friend {
   readonly string: string;
 
   static parse(code: string): Result<Friend, AppError> {
     try {
-      if (
-        code.length !== 0 &&
-        (code === 'mellon' || code === 'мэллон' || code === 'tj¸$5^')
-      ) {
+      if (code === 'mellon' || code === 'мэллон' || code === 'tj¸$5^') {
         return Result.ok(new Friend(code));
       }
 
       throw new AppError({
-        code: 'ERROR_CRETING_FRIEND_INSTANCE',
+        code: 'ERROR_GETTING_FRIEND_INSTANCE',
         message: 'Неправильный код для друга',
         path: [],
       });
@@ -27,3 +24,7 @@ export class Friend {
     this.string = string;
   }
 }
+
+export const friend = (): Friend => {
+  return (Friend.parse('mellon') as Ok<Friend, AppError>).value;
+};

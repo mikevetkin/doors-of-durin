@@ -9,15 +9,17 @@ export const useDoorsOfDurin = () => {
     doorsOfDurinState()
   );
 
-  const onChange = (value: string) => {
-    return dispatch({
+  const changeCode = (value: string) =>
+    dispatch({
       type: 'SayCodeEvent',
       value,
     });
-  };
+
+  const tryEnter = () => dispatch({ type: 'EnterEvent' });
 
   return {
     viewState: doorsOfDurinPresentation(state),
-    onChange,
+    changeCode,
+    tryEnter,
   };
 };

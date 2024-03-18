@@ -1,4 +1,4 @@
-import { Friend } from '../entity/Friend';
+import { Friend, friend } from '../entity/Friend';
 import { Stranger } from '../entity/Stranger';
 import { doorsOfDurinReducer } from './DoorsOfDurinReducer';
 import { doorsOfDurinState } from './DoorsOfDurinState';
@@ -35,6 +35,7 @@ describe('Doors of Durin Events', () => {
       const state = doorsOfDurinReducer(
         doorsOfDurinState({
           code: 'something',
+          traveller: friend(),
         }),
         {
           type: 'EnterEvent',

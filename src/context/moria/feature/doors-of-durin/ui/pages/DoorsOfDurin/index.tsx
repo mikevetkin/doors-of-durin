@@ -5,7 +5,7 @@ import { Ithildin } from '@/shared/Ithildin/ui/components/Ithildin';
 import { Tengwar } from '@/shared/tengwar/ui/components/Tengwar';
 
 export const DoorsOfDurinPage = () => {
-  const { viewState, onChange } = useDoorsOfDurin();
+  const { viewState, tryEnter, changeCode } = useDoorsOfDurin();
 
   return (
     <div className="flex h-[100vh] items-center justify-center">
@@ -18,9 +18,13 @@ export const DoorsOfDurinPage = () => {
         <div className="flex gap-2">
           <Input
             value={viewState.codeInput.value}
-            onChange={(el) => onChange(el.target.value)}
+            onChange={(el) => changeCode(el.target.value)}
           />
-          <Button variant="secondary" disabled={viewState.enterButton.disabled}>
+          <Button
+            variant="secondary"
+            disabled={viewState.enterButton.disabled}
+            onClick={tryEnter}
+          >
             {viewState.enterButton.label}
           </Button>
         </div>
