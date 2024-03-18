@@ -1,12 +1,20 @@
 import { Input } from '@/components/ui/input';
-import { useDoorsOfDurin } from '../../hook/useDoorsOfDurin';
 import { Button } from '@/components/ui/button';
 import { Ithildin } from '@/shared/Ithildin/ui/components/Ithildin';
 import { Tengwar } from '@/shared/tengwar/ui/components/Tengwar';
+import { DoorsOfDurinViewState } from './DoorsOfDurinViewState';
 
-export const DoorsOfDurinPage = () => {
-  const { viewState, tryEnter, changeCode } = useDoorsOfDurin();
+interface DoorsOfDurinPageProps {
+  viewState: DoorsOfDurinViewState;
+  tryEnter: () => void;
+  changeCode: (code: string) => void;
+}
 
+export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
+  viewState,
+  tryEnter,
+  changeCode,
+}) => {
   return (
     <div className="flex h-[100vh] items-center justify-center">
       <div className="flex flex-col gap-4">

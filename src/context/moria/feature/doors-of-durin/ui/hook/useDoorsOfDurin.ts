@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { doorsOfDurinReducer } from '../../domain/functional-core/DoorsOfDurinReducer';
 import { doorsOfDurinState } from '../../domain/functional-core/DoorsOfDurinState';
-import { doorsOfDurinPresentation } from '../pages/DoorsOfDurin/DoorsOfDurinPresentation';
+import { appPresentation } from '@/AppPresentation';
 
 export const useDoorsOfDurin = () => {
   const [state, dispatch] = useReducer(
@@ -18,7 +18,7 @@ export const useDoorsOfDurin = () => {
   const tryEnter = () => dispatch({ type: 'EnterEvent' });
 
   return {
-    viewState: doorsOfDurinPresentation(state),
+    viewState: appPresentation(state),
     changeCode,
     tryEnter,
   };
