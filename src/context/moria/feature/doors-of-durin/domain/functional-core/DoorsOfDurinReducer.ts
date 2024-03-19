@@ -24,14 +24,12 @@ function sayName(
 ): DoorsOfDurinState {
   return {
     ...state,
-    code: event.value,
+    code: event.value.toLowerCase(),
   };
 }
 
 function enterEvent(state: DoorsOfDurinState): DoorsOfDurinState {
   const frientResult = Friend.parse(state.code);
-
-  console.log('frientResult :>> ', frientResult);
 
   return {
     ...state,

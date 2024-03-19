@@ -8,12 +8,22 @@ import { doorsOfDurinState } from './DoorsOfDurinState';
  */
 describe('Doors of Durin Events', () => {
   describe('SayCodeEvent - сказать код', () => {
-    const state = doorsOfDurinReducer(doorsOfDurinState(), {
-      type: 'SayCodeEvent',
-      value: 'Annon edhellen, edro hi ammen',
+    test('Заносит код в стейт', () => {
+      const state = doorsOfDurinReducer(doorsOfDurinState(), {
+        type: 'SayCodeEvent',
+        value: 'annon edhellen, edro hi ammen',
+      });
+
+      expect(state.code).toEqual('annon edhellen, edro hi ammen');
     });
-    test('заносит код в стейт', () => {
-      expect(state.code).toEqual('Annon edhellen, edro hi ammen');
+
+    test('Безразличен к регистру', () => {
+      const state = doorsOfDurinReducer(doorsOfDurinState(), {
+        type: 'SayCodeEvent',
+        value: 'Annon edhellen, edro hi ammen',
+      });
+
+      expect(state.code).toEqual('annon edhellen, edro hi ammen');
     });
   });
 

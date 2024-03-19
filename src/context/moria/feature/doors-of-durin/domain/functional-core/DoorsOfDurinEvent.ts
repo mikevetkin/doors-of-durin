@@ -5,7 +5,6 @@ export interface SayCodeEvent {
 
 export interface EnterEvent {
   type: 'EnterEvent';
-  // FIXME: Наверное на вход нужно подать меллона
 }
 
 /**
