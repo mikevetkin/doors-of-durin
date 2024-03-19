@@ -1,34 +1,28 @@
 import { Friend } from '../entity/Friend';
 import { Stranger } from '../entity/Stranger';
-import { DoorsOfDurinEvent, SayCodeEvent } from './DoorsOfDurinEvent';
-import { DoorsOfDurinState } from './DoorsOfDurinState';
+import { DoorsOfDurinEvent as Event, SayCodeEvent } from './DoorsOfDurinEvent';
+import { DoorsOfDurinState as State } from './DoorsOfDurinState';
 
 /**
  * Как система должна реагировать присылаемые в неё события
  */
-export const doorsOfDurinReducer = (
-  state: DoorsOfDurinState,
-  event: DoorsOfDurinEvent
-) => {
+export const doorsOfDurinReducer = (state: State, event: Event) => {
   switch (event.type) {
     case 'SayCodeEvent':
-      return sayName(state, event);
+      return sayCode(state, event);
     case 'EnterEvent':
       return enterEvent(state);
   }
 };
 
-function sayName(
-  state: DoorsOfDurinState,
-  event: SayCodeEvent
-): DoorsOfDurinState {
+function sayCode(state: State, event: SayCodeEvent): State {
   return {
     ...state,
     code: event.value.toLowerCase(),
   };
 }
 
-function enterEvent(state: DoorsOfDurinState): DoorsOfDurinState {
+function enterEvent(state: State): State {
   const frientResult = Friend.parse(state.code);
 
   return {
