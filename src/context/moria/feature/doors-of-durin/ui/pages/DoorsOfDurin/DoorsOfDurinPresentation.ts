@@ -4,11 +4,11 @@ import { DoorsOfDurinViewState } from './DoorsOfDurinViewState';
 
 export const doorsOfDurinPresentation = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _: DoorsOfDurinState
+  state: DoorsOfDurinState
 ): DoorsOfDurinViewState => {
   return new DoorsOfDurinViewState({
     ithildin: new IthildinViewState({
-      isGlow: false,
+      isGlow: state.isMoonShining,
     }),
   });
 };

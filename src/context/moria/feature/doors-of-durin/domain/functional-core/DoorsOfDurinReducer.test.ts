@@ -1,9 +1,17 @@
+import { doorsOfDurinReducer } from './DoorsOfDurinReducer';
+import { doorsOfDurinState } from './DoorsOfDurinState';
+
 /**
  * Какие требования должна реализовать система
  */
-describe.skip('Doors of Durin Events', () => {
+describe('Doors of Durin Events', () => {
   describe('SayCodeEvent - сказать код', () => {});
   describe('MoonBeganShineEvent - начинает светить луна', () => {
-    it('', () => {});
+    const state = doorsOfDurinReducer(doorsOfDurinState(), {
+      type: 'MoonBeganShineEvent',
+    });
+    test('В стейт выставляется соответствующий флаг', () => {
+      expect(state.isMoonShining).toBe(true);
+    });
   });
 });

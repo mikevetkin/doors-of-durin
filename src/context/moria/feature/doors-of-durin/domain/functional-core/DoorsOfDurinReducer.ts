@@ -25,5 +25,8 @@ function sayCode(state: State, event: SayCodeEvent): State {
 }
 
 function moonBeganShine(state: State): State {
-  return state;
+  return {
+    ...state,
+    isMoonShining: true,
+  };
 }
