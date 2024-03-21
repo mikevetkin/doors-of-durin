@@ -1,3 +1,4 @@
+import { AppError } from '@/core/appError/domain/entity/appError';
 import { Friend } from './Friend';
 
 describe('Friend Instance', () => {
@@ -11,6 +12,10 @@ describe('Friend Instance', () => {
     const maybeFriend = Friend.parse('Annon edhellen, edro hi ammen');
 
     expect(maybeFriend.isOk).toBeFalsy();
+    expect(maybeFriend.isErr && maybeFriend.error).toBeInstanceOf(AppError);
+    expect(maybeFriend.isErr && maybeFriend.error.message).toBe(
+      'Неправильный код для друга'
+    );
   });
 
   describe('Если передано слово "друг" по-эльфийски, то создаётся инстанс друга', () => {
@@ -19,6 +24,9 @@ describe('Friend Instance', () => {
 
       expect(maybeFriend.isOk).toBeTruthy();
       expect(maybeFriend.isOk && maybeFriend.value).toBeInstanceOf(Friend);
+      expect(maybeFriend.isOk && maybeFriend.value.greeting).toBe(
+        'Welcome to Moria'
+      );
     });
 
     test('На кириллице', () => {
@@ -26,6 +34,9 @@ describe('Friend Instance', () => {
 
       expect(maybeFriend.isOk).toBeTruthy();
       expect(maybeFriend.isOk && maybeFriend.value).toBeInstanceOf(Friend);
+      expect(maybeFriend.isOk && maybeFriend.value.greeting).toBe(
+        'Добро пожаловать в Морию'
+      );
     });
 
     test('На тэнгваре (синдарин)', () => {
@@ -33,6 +44,9 @@ describe('Friend Instance', () => {
 
       expect(maybeFriend.isOk).toBeTruthy();
       expect(maybeFriend.isOk && maybeFriend.value).toBeInstanceOf(Friend);
+      expect(maybeFriend.isOk && maybeFriend.value.greeting).toBe(
+        'yj$zt^`V 5`C t7Y`B`C'
+      );
     });
   });
 });

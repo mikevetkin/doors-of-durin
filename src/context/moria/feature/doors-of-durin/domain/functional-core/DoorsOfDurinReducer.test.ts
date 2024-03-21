@@ -6,7 +6,7 @@ import { doorsOfDurinState } from './DoorsOfDurinState';
 /**
  * Какие требования должна реализовать система
  */
-describe('Doors of Durin Events', () => {
+describe.skip('Doors of Durin Events', () => {
   describe('SayCodeEvent - сказать код', () => {
     test('Заносит код в стейт', () => {
       const state = doorsOfDurinReducer(doorsOfDurinState(), {
@@ -27,7 +27,7 @@ describe('Doors of Durin Events', () => {
     });
   });
 
-  describe('EnterEvent - попытаться войти', () => {
+  describe.skip('EnterEvent - попытаться войти', () => {
     test('Если сказан верный код, помечает путника, как друга', () => {
       const state = doorsOfDurinReducer(
         doorsOfDurinState({

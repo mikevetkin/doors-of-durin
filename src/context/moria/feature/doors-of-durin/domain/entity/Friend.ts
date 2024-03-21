@@ -1,13 +1,18 @@
 import { AppError } from '@/core/appError/domain/entity/appError';
-import Result, { Ok } from 'true-myth/result';
+import Result, { Ok, ok } from 'true-myth/result';
 
 export class Friend {
-  readonly string: string;
+  readonly greeting: string;
 
   static parse(code: string): Result<Friend, AppError> {
     try {
-      if (code === 'mellon' || code === 'мэллон' || code === 'tj¸$5^') {
-        return Result.ok(new Friend(code));
+      switch (code) {
+        case 'mellon':
+          return ok(new Friend('Welcome to Moria'));
+        case 'мэллон':
+          return ok(new Friend('Добро пожаловать в Морию'));
+        case 'tj¸$5^':
+          return ok(new Friend('yj$zt^`V 5`C t7Y`B`C'));
       }
 
       throw new AppError({
@@ -20,8 +25,8 @@ export class Friend {
     }
   }
 
-  private constructor(string: string) {
-    this.string = string;
+  private constructor(greeting: string) {
+    this.greeting = greeting;
   }
 }
 

@@ -3,7 +3,7 @@ import { friend } from './context/moria/feature/doors-of-durin/domain/entity/Fri
 import { Stranger } from './context/moria/feature/doors-of-durin/domain/entity/Stranger';
 import { doorsOfDurinState } from './context/moria/feature/doors-of-durin/domain/functional-core/DoorsOfDurinState';
 import { DoorsOfDurinViewState } from './context/moria/feature/doors-of-durin/ui/pages/DoorsOfDurin/DoorsOfDurinViewState';
-import { WellcomeToMoriaViewState } from './context/moria/feature/doors-of-durin/ui/pages/WellcomeToMoria/WellcomeToMoriaViewState';
+import { WelcomeToMoriaViewState } from './context/moria/feature/doors-of-durin/ui/pages/WelcomeToMoria/WelcomeToMoriaViewState';
 
 describe('Представление Мории', () => {
   test('Если прохожий оказался другом, то он видит приветствие', () => {
@@ -13,7 +13,7 @@ describe('Представление Мории', () => {
       })
     );
 
-    expect(viewState).toBeInstanceOf(WellcomeToMoriaViewState);
+    expect(viewState).toBeInstanceOf(WelcomeToMoriaViewState);
   });
 
   test('Если прохожий оказался чужаком, то он видит закрытые врата в Морию', () => {

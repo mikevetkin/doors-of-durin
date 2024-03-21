@@ -6,24 +6,15 @@ import { DoorsOfDurinState as State } from './DoorsOfDurinState';
 /**
  * Как система должна реагировать присылаемые в неё события
  */
-export const doorsOfDurinReducer = (state: State, event: Event) => {
+export const doorsOfDurinReducer = (state: State, event: Event): State => {
   switch (event.type) {
     case 'SayCodeEvent':
       return sayCode(state, event);
-    case 'EnterEvent':
-      return enterEvent(state);
   }
 };
 
 function sayCode(state: State, event: SayCodeEvent): State {
-  return {
-    ...state,
-    code: event.value.toLowerCase(),
-  };
-}
-
-function enterEvent(state: State): State {
-  const frientResult = Friend.parse(state.code);
+  const frientResult = Friend.parse(event.value.toLowerCase());
 
   return {
     ...state,

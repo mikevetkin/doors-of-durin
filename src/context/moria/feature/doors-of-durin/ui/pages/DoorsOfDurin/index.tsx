@@ -1,18 +1,15 @@
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Ithildin } from '@/shared/Ithildin/ui/components/Ithildin';
 import { Tengwar } from '@/shared/tengwar/ui/components/Tengwar';
 import { DoorsOfDurinViewState } from './DoorsOfDurinViewState';
 
 interface DoorsOfDurinPageProps {
   viewState: DoorsOfDurinViewState;
-  tryEnter: () => void;
   changeCode: (code: string) => void;
 }
 
 export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
   viewState,
-  tryEnter,
   changeCode,
 }) => {
   return (
@@ -24,17 +21,7 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
           </Tengwar>
         </Ithildin>
         <div className="flex gap-2">
-          <Input
-            value={viewState.codeInput.value}
-            onChange={(el) => changeCode(el.target.value)}
-          />
-          <Button
-            variant="secondary"
-            disabled={viewState.enterButton.disabled}
-            onClick={tryEnter}
-          >
-            {viewState.enterButton.label}
-          </Button>
+          <Input onChange={(el) => changeCode(el.target.value)} />
         </div>
         <Ithildin viewState={viewState.ithildin}>
           <Tengwar>

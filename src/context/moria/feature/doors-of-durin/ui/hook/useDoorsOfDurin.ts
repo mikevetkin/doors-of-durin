@@ -15,11 +15,11 @@ export const useDoorsOfDurin = () => {
       value,
     });
 
-  const tryEnter = () => dispatch({ type: 'EnterEvent' });
+  // const tryEnter = () => dispatch({ type: 'EnterEvent' });
 
   return {
     viewState: appPresentation(state),
     changeCode,
-    tryEnter,
+    // tryEnter,
   };
 };
