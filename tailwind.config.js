@@ -10,17 +10,7 @@ module.exports = {
   prefix: '',
   theme: {
     fontFamily: {
-      mono: [
-        'Tengwar Parmaite',
-        'Tengwar Annatar',
-        'Tengwar Quenya',
-        'Tengwar Formal',
-        'Tengwar Eldamar',
-        'Tengwar Noldor',
-        'Tengwar Elfica',
-        'Tengwar Sindarin',
-        'Tengwar Gothika',
-      ],
+      mono: ['Tengwar Annatar'],
       medium: ['Times New Roman'],
     },
     container: {

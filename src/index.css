@@ -64,4 +64,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  @font-face {
+    font-family: 'Tengwar Annatar';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./fonts/TengwarAnnatar.ttf') format('truetype');
+  }
 }
