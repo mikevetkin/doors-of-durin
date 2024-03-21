@@ -22,6 +22,5 @@ export const useDoorsOfDurin = () => {
   return {
     viewState: appPresentation(state),
     changeCode,
-    // tryEnter,
   };
 };

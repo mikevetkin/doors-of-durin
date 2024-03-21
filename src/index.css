@@ -25,6 +25,8 @@
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
     --lazy-to-do: 240 4.8% 95.9%;
+    --ithildin: 240 5.9% 90%;
+    --glowing-ithildin: 240 5.9% 90%;
   }
 
   .dark {
@@ -48,6 +50,8 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --lazy-to-do: 240 3.7% 6.9%;
+    --ithildin: 240 3.7% 15.9%;
+    --glowing-ithildin: 360 100% 100% 1;
   }
 }
 

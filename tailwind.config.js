@@ -69,12 +69,15 @@ module.exports = {
           DEFAULT: 'hsl(var(--lazy-to-do))',
           foreground: 'hsl(var(--muted-foreground))',
         },
+        ithildin: 'hsl(var(--ithildin))',
+        'glowing-ithildin': 'hsl(var(--glowing-ithildin))',
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      // FIXME: Тут анимация
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
