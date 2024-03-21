@@ -3,7 +3,11 @@ export interface SayCodeEvent {
   value: string;
 }
 
+export interface MoonBeganShine {
+  type: 'MoonBeganShineEvent';
+}
+
 /**
  * Какие события могут происходить в системе
  */
-export type DoorsOfDurinEvent = SayCodeEvent;
+export type DoorsOfDurinEvent = SayCodeEvent | MoonBeganShine;

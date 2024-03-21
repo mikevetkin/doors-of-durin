@@ -11,8 +11,6 @@ export class Friend {
           return ok(new Friend('Welcome to Moria'));
         case 'мэллон':
           return ok(new Friend('Добро пожаловать в Морию'));
-        case 'tj¸$5^':
-          return ok(new Friend('yj$zt^`V 5`C t7Y`B`C'));
       }
 
       throw new AppError({

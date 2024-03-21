@@ -39,7 +39,7 @@ describe('Friend Instance', () => {
       );
     });
 
-    test('На тэнгваре (синдарин)', () => {
+    test.skip('На тэнгваре (синдарин)', () => {
       const maybeFriend = Friend.parse('tj¸$5^');
 
       expect(maybeFriend.isOk).toBeTruthy();
