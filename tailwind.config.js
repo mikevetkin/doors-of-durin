@@ -72,6 +72,9 @@ module.exports = {
         ithildin: 'hsl(var(--ithildin))',
         'glowing-ithildin': 'hsl(var(--glowing-ithildin))',
       },
+      dropShadow: {
+        ithildin: '0 0 10px rgba(var(--ithildin-shadow))',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

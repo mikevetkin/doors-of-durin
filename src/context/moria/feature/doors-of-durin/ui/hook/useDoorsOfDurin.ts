@@ -10,7 +10,7 @@ export const useDoorsOfDurin = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => dispatch({ type: 'MoonBeganShineEvent' }), 3000);
+    setTimeout(() => dispatch({ type: 'MoonBeganShineEvent' }), 0);
   }, []);
 
   const changeCode = (value: string) =>
