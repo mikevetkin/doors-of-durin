@@ -21,6 +21,7 @@ module.exports = {
         'Tengwar Sindarin',
         'Tengwar Gothika',
       ],
+      medium: ['Times New Roman'],
     },
     container: {
       center: true,

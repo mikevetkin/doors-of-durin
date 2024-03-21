@@ -1,0 +1,12 @@
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  animation: 3s ease-out 0s 1 slideInFromLeft;
+}
