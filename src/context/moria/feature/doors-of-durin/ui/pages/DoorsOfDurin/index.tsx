@@ -34,7 +34,10 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
           </HoverCardContent>
         </HoverCard>
         <div className="flex gap-2">
-          <Input onChange={(el) => changeCode(el.target.value)} />
+          <Input
+            className="text-base"
+            onChange={(el) => changeCode(el.target.value)}
+          />
         </div>
         <HoverCard>
           <HoverCardTrigger>
