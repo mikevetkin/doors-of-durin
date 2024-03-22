@@ -1,4 +1,4 @@
-import { AppError } from '@/core/appError/domain/entity/appError';
+import { AppError } from '@/core/app-error/domain/entity/appError';
 import { Friend } from './Friend';
 
 describe('Friend Instance', () => {

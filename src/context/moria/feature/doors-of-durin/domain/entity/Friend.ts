@@ -1,4 +1,4 @@
-import { AppError } from '@/core/appError/domain/entity/appError';
+import { AppError } from '@/core/app-error/domain/entity/appError';
 import Result, { Ok, ok } from 'true-myth/result';
 
 export class Friend {
