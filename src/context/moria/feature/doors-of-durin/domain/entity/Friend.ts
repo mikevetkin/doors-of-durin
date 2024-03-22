@@ -15,7 +15,7 @@ export class Friend {
 
       throw new AppError({
         code: 'ERROR_GETTING_FRIEND_INSTANCE',
-        message: 'Неправильный код для друга',
+        message: 'Неправильный код',
         path: [],
       });
     } catch (error) {

@@ -14,7 +14,7 @@ describe('Friend Instance', () => {
     expect(maybeFriend.isOk).toBeFalsy();
     expect(maybeFriend.isErr && maybeFriend.error).toBeInstanceOf(AppError);
     expect(maybeFriend.isErr && maybeFriend.error.message).toBe(
-      'Неправильный код для друга'
+      'Неправильный код'
     );
   });
 
