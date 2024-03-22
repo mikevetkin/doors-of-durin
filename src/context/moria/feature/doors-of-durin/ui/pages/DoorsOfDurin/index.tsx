@@ -18,7 +18,7 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
   changeCode,
 }) => {
   return (
-    <div className="flex h-[100vh] items-center justify-center">
+    <div className="flex h-[100svh] items-center justify-center">
       <div className="flex flex-col gap-4">
         <HoverCard>
           <HoverCardTrigger>
