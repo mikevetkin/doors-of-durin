@@ -1,6 +1,8 @@
 import { CorrectCode } from '../entity/Code';
 import { Friend } from '../entity/Friend';
+import { Name } from '../entity/Name';
 import { Stranger } from '../entity/Stranger';
+import { Traveller } from '../entity/Traveller';
 import { DoorsOfDurinEvent as Event, SayCodeEvent } from './DoorsOfDurinEvent';
 import { DoorsOfDurinState as State } from './DoorsOfDurinState';
 
@@ -18,12 +20,16 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
 
 function sayCode(state: State, event: SayCodeEvent): State {
   const codeResult = CorrectCode.parse(event.value.toLowerCase());
+  const nameResult = Name.parse('Frodo');
+
+  const traveller: Traveller =
+    codeResult.isOk && nameResult.isOk
+      ? new Friend({ code: codeResult.value, name: nameResult.value })
+      : new Stranger();
 
   return {
     ...state,
-    traveller: codeResult.isOk
-      ? new Friend({ code: codeResult.value })
-      : new Stranger(),
+    traveller,
   };
 }
 
