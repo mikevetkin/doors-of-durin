@@ -1,3 +1,4 @@
+import { CorrectCode } from '../entity/Code';
 import { Friend } from '../entity/Friend';
 import { Stranger } from '../entity/Stranger';
 import { DoorsOfDurinEvent as Event, SayCodeEvent } from './DoorsOfDurinEvent';
@@ -16,11 +17,13 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
 };
 
 function sayCode(state: State, event: SayCodeEvent): State {
-  const frientResult = Friend.parse(event.value.toLowerCase());
+  const codeResult = CorrectCode.parse(event.value.toLowerCase());
 
   return {
     ...state,
-    traveller: frientResult.isOk ? frientResult.value : new Stranger(),
+    traveller: codeResult.isOk
+      ? new Friend({ code: codeResult.value })
+      : new Stranger(),
   };
 }
 

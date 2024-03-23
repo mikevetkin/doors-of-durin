@@ -1,33 +1,12 @@
-import { AppError } from '@/core/app-error/domain/entity/appError';
-import Result, { Ok, ok } from 'true-myth/result';
-
+import { CorrectCode, correctCode } from './Code';
 export class Friend {
-  readonly greeting: string;
+  code: CorrectCode;
 
-  static parse(code: string): Result<Friend, AppError> {
-    try {
-      switch (code) {
-        case 'mellon':
-          return ok(new Friend('Welcome to Moria'));
-        case 'мэллон':
-          return ok(new Friend('Добро пожаловать в Морию'));
-      }
-
-      throw new AppError({
-        code: 'ERROR_GETTING_FRIEND_INSTANCE',
-        message: 'Неправильный код',
-        path: [],
-      });
-    } catch (error) {
-      return Result.err(error as AppError);
-    }
-  }
-
-  private constructor(greeting: string) {
-    this.greeting = greeting;
+  constructor(params: Friend) {
+    this.code = params.code;
   }
 }
 
 export const friend = (): Friend => {
-  return (Friend.parse('mellon') as Ok<Friend, AppError>).value;
+  return new Friend({ code: correctCode() });
 };
