@@ -1,15 +1,18 @@
 import { AppError } from '@/core/app-error/domain/entity/appError';
 import Result, { Ok, ok } from 'true-myth/result';
 
-type Mellon = 'mellon';
+type Mellon = 'mellon' | 'мэллон';
 
 export class CorrectCode {
   public string: Mellon;
 
   static parse(code: string): Result<CorrectCode, AppError> {
     try {
-      if (code === 'mellon') {
-        return ok(new CorrectCode(code));
+      switch (code) {
+        case 'mellon':
+          return ok(new CorrectCode(code));
+        case 'мэллон':
+          return ok(new CorrectCode(code));
       }
 
       throw new AppError({

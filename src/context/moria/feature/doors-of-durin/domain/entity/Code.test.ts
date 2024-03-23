@@ -24,7 +24,7 @@ describe('Code Instance', () => {
       expect(maybeCode.isOk && maybeCode.value).toBeInstanceOf(CorrectCode);
     });
 
-    test.skip('На кириллице', () => {
+    test('На кириллице', () => {
       const maybeCode = CorrectCode.parse('мэллон');
 
       expect(maybeCode.isOk).toBeTruthy();
