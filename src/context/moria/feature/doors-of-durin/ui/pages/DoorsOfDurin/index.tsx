@@ -9,16 +9,17 @@ import {
 } from '@/components/ui/hover-card';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { FormKey } from '@/context/moria/feature/doors-of-durin/domain/entity/form/FormKey';
 
 interface DoorsOfDurinPageProps {
   viewState: DoorsOfDurinViewState;
-  changeCode: (code: string) => void;
+  changeForm: (key: FormKey, value: string) => void;
   enter: () => void;
 }
 
 export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
   viewState,
-  changeCode,
+  changeForm,
   enter,
 }) => {
   return (
@@ -56,26 +57,19 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
           }}
           className="flex flex-col gap-6"
         >
-          <div className="grid w-full max-w-sm items-center gap-1.5 text-left">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              className="text-base"
-              id="name"
-              type="text"
-              autoComplete="off"
-              size={2}
-            />
-          </div>
-          <div className="grid w-full max-w-sm items-center gap-1.5 text-left">
-            <Label htmlFor="code">Code</Label>
-            <Input
-              className="text-base"
-              id="code"
-              type="text"
-              autoComplete="off"
-              onChange={(el) => changeCode(el.target.value)}
-            />
-          </div>
+          {viewState.form.map((input) => (
+            <div className="grid w-full max-w-sm items-center gap-1.5 text-left">
+              <Label htmlFor={input.key}>{input.label}</Label>
+              <Input
+                className="text-base"
+                id={input.key}
+                type="text"
+                autoComplete="off"
+                size={2}
+                onChange={(e) => changeForm(input.key, e.target.value)}
+              />
+            </div>
+          ))}
           <Button type="submit" variant="ghost">
             Enter
           </Button>

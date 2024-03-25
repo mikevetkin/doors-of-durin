@@ -8,11 +8,17 @@ import { WelcomeToMoriaViewState } from './context/moria/feature/doors-of-durin/
 import { WelcomeToMoria } from './context/moria/feature/doors-of-durin/ui/pages/WelcomeToMoria';
 
 function App() {
-  const { viewState, changeCode } = useDoorsOfDurin();
+  const { viewState, changeForm, enter } = useDoorsOfDurin();
 
   const content = (): ReactNode => {
     if (viewState instanceof DoorsOfDurinViewState) {
-      return <DoorsOfDurinPage viewState={viewState} changeCode={changeCode} />;
+      return (
+        <DoorsOfDurinPage
+          viewState={viewState}
+          changeForm={changeForm}
+          enter={enter}
+        />
+      );
     } else if (viewState instanceof WelcomeToMoriaViewState) {
       return <WelcomeToMoria viewState={viewState} />;
     }

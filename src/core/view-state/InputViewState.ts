@@ -1,9 +1,13 @@
-export class InputViewState {
+export class InputViewState<K> {
+  key: K;
+  label: string;
   value: string;
-  disabled: boolean;
+  disabled?: boolean;
 
-  constructor({ value, disabled }: InputViewState) {
-    this.value = value;
-    this.disabled = disabled;
+  constructor(param: InputViewState<K>) {
+    this.key = param.key;
+    this.value = param.value;
+    this.disabled = param.disabled;
+    this.label = param.label;
   }
 }
