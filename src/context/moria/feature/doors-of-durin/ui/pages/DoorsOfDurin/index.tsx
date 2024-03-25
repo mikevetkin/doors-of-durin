@@ -13,11 +13,13 @@ import { Button } from '@/components/ui/button';
 interface DoorsOfDurinPageProps {
   viewState: DoorsOfDurinViewState;
   changeCode: (code: string) => void;
+  enter: () => void;
 }
 
 export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
   viewState,
   changeCode,
+  enter,
 }) => {
   return (
     <div className="flex h-[100svh] items-center justify-center">
@@ -47,7 +49,13 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
             <br />В перводе на русский: <i>"Молви друг и войди"</i>
           </HoverCardContent>
         </HoverCard>
-        <div className="flex flex-col gap-6">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            enter();
+          }}
+          className="flex flex-col gap-6"
+        >
           <div className="grid w-full max-w-sm items-center gap-1.5 text-left">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -71,7 +79,7 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
           <Button type="submit" variant="ghost">
             Enter
           </Button>
-        </div>
+        </form>
       </div>
     </div>
   );
