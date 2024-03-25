@@ -5,6 +5,10 @@ export interface SayCodeEvent {
   value: string;
 }
 
+export interface EnterEvent {
+  type: 'EnterEvent';
+}
+
 export interface ChangeFormEvent {
   type: 'ChangeFormEvent';
   key: FormKey;
@@ -18,4 +22,8 @@ export interface MoonBeganShine {
 /**
  * Какие события могут происходить в системе
  */
-export type DoorsOfDurinEvent = ChangeFormEvent | SayCodeEvent | MoonBeganShine;
+export type DoorsOfDurinEvent =
+  | ChangeFormEvent
+  | EnterEvent
+  | SayCodeEvent
+  | MoonBeganShine;

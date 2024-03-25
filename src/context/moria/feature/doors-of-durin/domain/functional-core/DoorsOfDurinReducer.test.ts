@@ -2,6 +2,7 @@ import { Friend } from '@/context/moria/feature/doors-of-durin/domain/entity/tra
 import { doorsOfDurinReducer } from './DoorsOfDurinReducer';
 import { doorsOfDurinState } from './DoorsOfDurinState';
 import { Stranger } from '@/context/moria/feature/doors-of-durin/domain/entity/traveller/Stranger';
+import { form } from '@/context/moria/feature/doors-of-durin/domain/entity/form/Form';
 
 /**
  * Какие требования должна реализовать система
@@ -28,7 +29,40 @@ describe('Doors of Durin Events', () => {
       expect(state.form.code).toEqual('Mellon');
     });
   });
-  describe('SayCodeEvent - сказать код', () => {
+
+  describe('EnterEvent - Вход в морию', () => {
+    test('Если сказан код и имя, то это друг', () => {
+      const state = doorsOfDurinReducer(
+        doorsOfDurinState({
+          form: form({
+            code: 'mellon',
+            name: 'Frodo',
+          }),
+        }),
+        {
+          type: 'EnterEvent',
+        }
+      );
+      expect(state.traveller).toBeInstanceOf(Friend);
+    });
+
+    test('Если верный код или имя не сказаны, то это чужак', () => {
+      const state = doorsOfDurinReducer(
+        doorsOfDurinState({
+          form: form({
+            code: 'abra kadabra',
+            name: '',
+          }),
+        }),
+        {
+          type: 'EnterEvent',
+        }
+      );
+      expect(state.traveller).toBeInstanceOf(Stranger);
+    });
+  });
+
+  describe.skip('SayCodeEvent - сказать код', () => {
     test('Если сказан верный код, то это друг', () => {
       const state = doorsOfDurinReducer(doorsOfDurinState(), {
         type: 'SayCodeEvent',

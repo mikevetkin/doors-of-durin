@@ -16,6 +16,8 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
   switch (event.type) {
     case 'ChangeFormEvent':
       return changeForm(state, event);
+    case 'EnterEvent':
+      return enter(state);
     case 'MoonBeganShineEvent':
       return moonBeganShine(state);
     case 'SayCodeEvent':
@@ -30,6 +32,21 @@ function changeForm(state: State, event: ChangeFormEvent): State {
       ...state.form,
       [event.key]: event.value,
     },
+  };
+}
+
+function enter(state: State): State {
+  const codeResult = CorrectCode.parse(state.form.code.toLowerCase());
+  const nameResult = Name.parse(state.form.name);
+
+  const traveller =
+    codeResult.isOk && nameResult.isOk
+      ? new Friend({ code: codeResult.value, name: nameResult.value })
+      : new Stranger();
+
+  return {
+    ...state,
+    traveller,
   };
 }
 
