@@ -1,5 +1,5 @@
-import { CorrectCode, correctCode } from './Code';
-import { Name, name } from './Name';
+import { CorrectCode, correctCode } from '../code/Code';
+import { Name, name } from '../name/Name';
 export class Friend {
   code: CorrectCode;
   name: Name;

@@ -1,7 +1,7 @@
-import { Friend } from '@/context/moria/feature/doors-of-durin/domain/entity/Friend';
+import { Friend } from '@/context/moria/feature/doors-of-durin/domain/entity/traveller/Friend';
 import { doorsOfDurinReducer } from './DoorsOfDurinReducer';
 import { doorsOfDurinState } from './DoorsOfDurinState';
-import { Stranger } from '@/context/moria/feature/doors-of-durin/domain/entity/Stranger';
+import { Stranger } from '@/context/moria/feature/doors-of-durin/domain/entity/traveller/Stranger';
 
 /**
  * Какие требования должна реализовать система

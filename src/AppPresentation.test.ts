@@ -1,6 +1,6 @@
 import { appPresentation } from './AppPresentation';
-import { friend } from './context/moria/feature/doors-of-durin/domain/entity/Friend';
-import { Stranger } from './context/moria/feature/doors-of-durin/domain/entity/Stranger';
+import { friend } from './context/moria/feature/doors-of-durin/domain/entity/traveller/Friend';
+import { Stranger } from './context/moria/feature/doors-of-durin/domain/entity/traveller/Stranger';
 import { doorsOfDurinState } from './context/moria/feature/doors-of-durin/domain/functional-core/DoorsOfDurinState';
 import { DoorsOfDurinViewState } from './context/moria/feature/doors-of-durin/ui/pages/DoorsOfDurin/DoorsOfDurinViewState';
 import { WelcomeToMoriaViewState } from './context/moria/feature/doors-of-durin/ui/pages/WelcomeToMoria/WelcomeToMoriaViewState';

@@ -1,8 +1,12 @@
-import { CorrectCode } from '../entity/Code';
-import { Friend } from '../entity/Friend';
-import { Name } from '../entity/Name';
-import { Stranger } from '../entity/Stranger';
-import { DoorsOfDurinEvent as Event, SayCodeEvent } from './DoorsOfDurinEvent';
+import { CorrectCode } from '../entity/code/Code';
+import { Friend } from '../entity/traveller/Friend';
+import { Name } from '../entity/name/Name';
+import { Stranger } from '../entity/traveller/Stranger';
+import {
+  ChangeFormEvent,
+  DoorsOfDurinEvent as Event,
+  SayCodeEvent,
+} from './DoorsOfDurinEvent';
 import { DoorsOfDurinState as State } from './DoorsOfDurinState';
 
 /**
@@ -10,13 +14,35 @@ import { DoorsOfDurinState as State } from './DoorsOfDurinState';
  */
 export const doorsOfDurinReducer = (state: State, event: Event): State => {
   switch (event.type) {
-    case 'SayCodeEvent':
-      return sayCode(state, event);
+    case 'ChangeFormEvent':
+      return changeForm(state, event);
     case 'MoonBeganShineEvent':
       return moonBeganShine(state);
+    case 'SayCodeEvent':
+      return sayCode(state, event);
   }
 };
 
+function changeForm(state: State, event: ChangeFormEvent): State {
+  return {
+    ...state,
+    form: {
+      ...state.form,
+      [event.key]: event.value,
+    },
+  };
+}
+
+function moonBeganShine(state: State): State {
+  return {
+    ...state,
+    isMoonShining: true,
+  };
+}
+
+/**
+ * @legacy
+ */
 function sayCode(state: State, event: SayCodeEvent): State {
   const codeResult = CorrectCode.parse(event.value.toLowerCase());
   const nameResult = Name.parse('Frodo');
@@ -29,12 +55,5 @@ function sayCode(state: State, event: SayCodeEvent): State {
   return {
     ...state,
     traveller,
-  };
-}
-
-function moonBeganShine(state: State): State {
-  return {
-    ...state,
-    isMoonShining: true,
   };
 }

@@ -1,4 +1,4 @@
-import { Friend } from '../../../domain/entity/Friend';
+import { Friend } from '../../../domain/entity/traveller/Friend';
 import { WelcomeToMoriaViewState } from './WelcomeToMoriaViewState';
 
 const mapGreeting = {
