@@ -22,7 +22,7 @@ export const doorsOfDurinPresentation = (
     ),
     enter: new ButtonViewState({
       label: 'Enter',
-      disabled: false,
+      disabled: state.form.code.length === 0 || state.form.name.length === 0,
     }),
   });
 };

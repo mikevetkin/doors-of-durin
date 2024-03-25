@@ -74,7 +74,12 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
               />
             </div>
           ))}
-          <Button type="submit" variant="ghost">
+          <Button
+            className="transition duration-100 ease-in-out"
+            type="submit"
+            variant="ghost"
+            disabled={viewState.enter.disabled}
+          >
             <Ithildin viewState={viewState.ithildin}>Enter</Ithildin>
           </Button>
         </form>
