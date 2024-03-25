@@ -59,7 +59,11 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
         >
           {viewState.form.map((input) => (
             <div className="grid w-full max-w-sm items-center gap-1.5 text-left">
-              <Label htmlFor={input.key}>{input.label}</Label>
+              <Label htmlFor={input.key}>
+                <Ithildin viewState={viewState.ithildin}>
+                  {input.label}
+                </Ithildin>
+              </Label>
               <Input
                 className="text-base"
                 id={input.key}
@@ -71,7 +75,7 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
             </div>
           ))}
           <Button type="submit" variant="ghost">
-            Enter
+            <Ithildin viewState={viewState.ithildin}>Enter</Ithildin>
           </Button>
         </form>
       </div>
