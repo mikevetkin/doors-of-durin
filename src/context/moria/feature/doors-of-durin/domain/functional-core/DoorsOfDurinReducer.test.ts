@@ -7,6 +7,27 @@ import { Stranger } from '@/context/moria/feature/doors-of-durin/domain/entity/t
  * Какие требования должна реализовать система
  */
 describe('Doors of Durin Events', () => {
+  describe('ChangeFormEvent - Изменение формы', () => {
+    test('Имя', () => {
+      const state = doorsOfDurinReducer(doorsOfDurinState(), {
+        type: 'ChangeFormEvent',
+        key: 'name',
+        value: 'Frodo',
+      });
+
+      expect(state.form.name).toEqual('Frodo');
+    });
+
+    test('Кодовое слово', () => {
+      const state = doorsOfDurinReducer(doorsOfDurinState(), {
+        type: 'ChangeFormEvent',
+        key: 'code',
+        value: 'Mellon',
+      });
+
+      expect(state.form.code).toEqual('Mellon');
+    });
+  });
   describe('SayCodeEvent - сказать код', () => {
     test('Если сказан верный код, то это друг', () => {
       const state = doorsOfDurinReducer(doorsOfDurinState(), {
