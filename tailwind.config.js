@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     fontFamily: {
       mono: ['Tengwar Annatar'],
-      medium: ['Times New Roman'],
+      // medium: ['Times New Roman'],
     },
     container: {
       center: true,
