@@ -1,10 +1,5 @@
 import { FormKey } from '@/context/moria/feature/doors-of-durin/domain/entity/form/FormKey';
 
-export interface SayCodeEvent {
-  type: 'SayCodeEvent';
-  value: string;
-}
-
 export interface EnterEvent {
   type: 'EnterEvent';
 }
@@ -22,8 +17,4 @@ export interface MoonBeganShine {
 /**
  * Какие события могут происходить в системе
  */
-export type DoorsOfDurinEvent =
-  | ChangeFormEvent
-  | EnterEvent
-  | SayCodeEvent
-  | MoonBeganShine;
+export type DoorsOfDurinEvent = ChangeFormEvent | EnterEvent | MoonBeganShine;

@@ -5,7 +5,6 @@ import { Stranger } from '../entity/traveller/Stranger';
 import {
   ChangeFormEvent,
   DoorsOfDurinEvent as Event,
-  SayCodeEvent,
 } from './DoorsOfDurinEvent';
 import { DoorsOfDurinState as State } from './DoorsOfDurinState';
 
@@ -20,8 +19,6 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
       return enter(state);
     case 'MoonBeganShineEvent':
       return moonBeganShine(state);
-    case 'SayCodeEvent':
-      return sayCode(state, event);
   }
 };
 
@@ -54,23 +51,5 @@ function moonBeganShine(state: State): State {
   return {
     ...state,
     isMoonShining: true,
-  };
-}
-
-/**
- * @legacy
- */
-function sayCode(state: State, event: SayCodeEvent): State {
-  const codeResult = CorrectCode.parse(event.value.toLowerCase());
-  const nameResult = Name.parse('Frodo');
-
-  const traveller =
-    codeResult.isOk && nameResult.isOk
-      ? new Friend({ code: codeResult.value, name: nameResult.value })
-      : new Stranger();
-
-  return {
-    ...state,
-    traveller,
   };
 }
