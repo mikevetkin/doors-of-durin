@@ -34,7 +34,8 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
             </Ithildin>
           </HoverCardTrigger>
           <HoverCardContent className="w-90 text-left">
-            Буква <i>"ando"</i> на тенгваре, означает <i>"врата"</i>
+            Буква <i>"ando"</i> на тенгваре. Означает <i>"дверь"</i> или{' '}
+            <i>"Дурин"</i>
           </HoverCardContent>
         </HoverCard>
         <HoverCard>
