@@ -41,7 +41,9 @@ export const DoorsOfDurinPage: React.FC<DoorsOfDurinPageProps> = ({
           <HoverCardTrigger>
             <Ithildin viewState={viewState.ithildin}>
               <Tengwar>
-                <h3 className="cursor-default text-3xl">q92h y9jj]5 ]y~T5h-</h3>
+                <h3 className="cursor-default text-3xl">
+                  q92h y9jjh5 ] y~T5h-
+                </h3>
               </Tengwar>
             </Ithildin>
           </HoverCardTrigger>
