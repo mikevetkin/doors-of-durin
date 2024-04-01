@@ -33,8 +33,10 @@ function changeForm(state: State, event: ChangeFormEvent): State {
 }
 
 function enter(state: State): State {
-  const codeResult = CorrectCode.parse(state.form.code.toLowerCase());
-  const nameResult = Name.parse(state.form.name);
+  const { code, name } = state.form;
+
+  const codeResult = CorrectCode.parse(code);
+  const nameResult = Name.parse(name);
 
   const traveller =
     codeResult.isOk && nameResult.isOk
