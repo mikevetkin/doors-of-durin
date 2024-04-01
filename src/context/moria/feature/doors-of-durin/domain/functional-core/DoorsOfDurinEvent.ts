@@ -11,10 +11,6 @@ export interface ChangeFormEvent {
   value: string;
 }
 
-export interface MoonBeganShineEvent {
-  type: 'MoonBeganShineEvent';
-}
-
 export interface ReceiveLightAnalisisEvent {
   type: 'ReceiveLightAnalisisEvent';
   light: Light | null;
@@ -26,5 +22,4 @@ export interface ReceiveLightAnalisisEvent {
 export type DoorsOfDurinEvent =
   | ChangeFormEvent
   | EnterEvent
-  | MoonBeganShineEvent
   | ReceiveLightAnalisisEvent;

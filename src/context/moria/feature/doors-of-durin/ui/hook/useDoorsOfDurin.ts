@@ -3,20 +3,13 @@ import { doorsOfDurinReducer } from '../../domain/functional-core/DoorsOfDurinRe
 import { doorsOfDurinState } from '../../domain/functional-core/DoorsOfDurinState';
 import { appPresentation } from '@/AppPresentation';
 import { FormKey } from '@/context/moria/feature/doors-of-durin/domain/entity/form/FormKey';
+import { moonlight } from '../../domain/entity/light/Moonlight';
 
 export const useDoorsOfDurin = () => {
   const [state, dispatch] = useReducer(
     doorsOfDurinReducer,
     doorsOfDurinState()
   );
-
-  useEffect(() => {
-    setTimeout(() => dispatch({ type: 'MoonBeganShineEvent' }), 3000);
-    setTimeout(
-      () => dispatch({ type: 'ReceiveLightAnalisisEvent', light: null }),
-      3000
-    );
-  }, []);
 
   const changeForm = (key: FormKey, value: string) =>
     dispatch({
@@ -29,6 +22,16 @@ export const useDoorsOfDurin = () => {
     dispatch({
       type: 'EnterEvent',
     });
+
+  /**
+   * Эмуляция получения данных от сервера со спектрометром
+   */
+  useEffect(() => {
+    setTimeout(
+      () => dispatch({ type: 'ReceiveLightAnalisisEvent', light: moonlight() }),
+      3000
+    );
+  }, []);
 
   return {
     viewState: appPresentation(state),

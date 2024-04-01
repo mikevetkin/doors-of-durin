@@ -20,8 +20,6 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
       return changeForm(state, event);
     case 'EnterEvent':
       return enter(state);
-    case 'MoonBeganShineEvent':
-      return moonBeganShine(state);
     case 'ReceiveLightAnalisisEvent':
       return receiveLightAnalisis(state, event);
   }
@@ -51,13 +49,6 @@ function enter(state: State): State {
   return {
     ...state,
     traveller,
-  };
-}
-
-function moonBeganShine(state: State): State {
-  return {
-    ...state,
-    isIthildinShining: true,
   };
 }
 

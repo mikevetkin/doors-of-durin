@@ -122,13 +122,4 @@ describe('Doors of Durin Events', () => {
       expect(state.isIthildinShining).toBe(false);
     });
   });
-
-  describe('MoonBeganShineEvent - начинает светить луна', () => {
-    const state = doorsOfDurinReducer(doorsOfDurinState(), {
-      type: 'MoonBeganShineEvent',
-    });
-    test('В стейт выставляется соответствующий флаг', () => {
-      expect(state.isIthildinShining).toBe(true);
-    });
-  });
 });
