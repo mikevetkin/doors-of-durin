@@ -12,6 +12,10 @@ export const useDoorsOfDurin = () => {
 
   useEffect(() => {
     setTimeout(() => dispatch({ type: 'MoonBeganShineEvent' }), 3000);
+    setTimeout(
+      () => dispatch({ type: 'ReceiveLightAnalisisEvent', light: null }),
+      3000
+    );
   }, []);
 
   const changeForm = (key: FormKey, value: string) =>

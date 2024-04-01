@@ -10,7 +10,7 @@ import { Traveller } from '../entity/traveller/Traveller';
  */
 export interface DoorsOfDurinState {
   form: Form;
-  isMoonShining: boolean;
+  isIthildinShining: boolean;
   traveller: Traveller;
 }
 
@@ -18,7 +18,7 @@ export const doorsOfDurinState = (
   data: Partial<DoorsOfDurinState> = {}
 ): DoorsOfDurinState => ({
   form: form(),
-  isMoonShining: false,
+  isIthildinShining: false,
   traveller: new Stranger(),
   ...data,
 });

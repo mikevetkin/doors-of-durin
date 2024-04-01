@@ -10,7 +10,7 @@ export const doorsOfDurinPresentation = (
 ): DoorsOfDurinViewState => {
   return new DoorsOfDurinViewState({
     ithildin: new IthildinViewState({
-      isGlow: state.isMoonShining,
+      isGlow: state.isIthildinShining,
     }),
     form: FormItems.map(
       (item) =>

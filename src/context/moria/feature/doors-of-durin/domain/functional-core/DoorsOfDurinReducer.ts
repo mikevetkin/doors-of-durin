@@ -5,8 +5,11 @@ import { Stranger } from '../entity/traveller/Stranger';
 import {
   ChangeFormEvent,
   DoorsOfDurinEvent as Event,
+  ReceiveLightAnalisisEvent,
 } from './DoorsOfDurinEvent';
 import { DoorsOfDurinState as State } from './DoorsOfDurinState';
+import { of } from 'true-myth/maybe';
+import { handleLight } from '@/shared/Ithildin/domain/lib/handleLight';
 
 /**
  * Как система должна реагировать присылаемые в неё события
@@ -19,6 +22,8 @@ export const doorsOfDurinReducer = (state: State, event: Event): State => {
       return enter(state);
     case 'MoonBeganShineEvent':
       return moonBeganShine(state);
+    case 'ReceiveLightAnalisisEvent':
+      return receiveLightAnalisis(state, event);
   }
 };
 
@@ -52,6 +57,18 @@ function enter(state: State): State {
 function moonBeganShine(state: State): State {
   return {
     ...state,
-    isMoonShining: true,
+    isIthildinShining: true,
+  };
+}
+
+function receiveLightAnalisis(
+  state: State,
+  event: ReceiveLightAnalisisEvent
+): State {
+  const { light } = event;
+
+  return {
+    ...state,
+    isIthildinShining: of(light).map(handleLight).unwrapOr(false),
   };
 }
