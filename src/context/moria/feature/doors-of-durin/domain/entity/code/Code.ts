@@ -10,7 +10,6 @@ export class CorrectCode {
     try {
       switch (code) {
         case 'mellon':
-          return ok(new CorrectCode(code));
         case 'мэллон':
           return ok(new CorrectCode(code));
       }
