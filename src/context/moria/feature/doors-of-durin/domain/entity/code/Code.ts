@@ -4,31 +4,31 @@ import Result, { Ok, ok } from 'true-myth/result';
 type Mellon = 'mellon' | 'мэллон';
 
 export class CorrectCode {
-  public string: Mellon;
+  public code: Mellon;
 
   static parse(code: string): Result<CorrectCode, AppError> {
-    try {
-      switch (code) {
-        case 'mellon':
-        case 'мэллон':
-          return ok(new CorrectCode(code));
-      }
-
-      throw new AppError({
-        code: 'ERROR_GETTING_CORRECT_CODE_INSTANCE',
-        message: 'Неправильный код',
-        path: [],
-      });
-    } catch (error) {
-      return Result.err(error as AppError);
+    switch (code) {
+      case 'mellon':
+      case 'мэллон':
+        return ok(new CorrectCode(code));
+      default:
+        return Result.err(CodeError.InvalidСode);
     }
   }
 
-  private constructor(string: Mellon) {
-    this.string = string;
+  private constructor(code: Mellon) {
+    this.code = code;
   }
 }
 
 export const correctCode = (): CorrectCode => {
   return (CorrectCode.parse('mellon') as Ok<CorrectCode, AppError>).value;
+};
+
+const CodeError = {
+  InvalidСode: new AppError({
+    code: 'ERROR_GETTING_CORRECT_CODE_INSTANCE',
+    message: 'Неправильный код',
+    path: [],
+  }),
 };

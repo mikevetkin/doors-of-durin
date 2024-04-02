@@ -10,5 +10,5 @@ export const welcomeToMoriaPresentation = (
   friend: Friend
 ): WelcomeToMoriaViewState =>
   new WelcomeToMoriaViewState({
-    greeting: `${mapGreeting[friend.code.string]} ${friend.name.string}`,
+    greeting: `${mapGreeting[friend.code.code]} ${friend.name.string}`,
   });
