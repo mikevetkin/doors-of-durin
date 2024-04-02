@@ -1,5 +1,5 @@
 import { AppError } from '@/core/app-error/domain/entity/appError';
-import Result, { Ok, ok } from 'true-myth/result';
+import Result, { ok, err, Ok } from 'true-myth/result';
 
 type Mellon = 'mellon' | 'мэллон';
 
@@ -12,7 +12,7 @@ export class CorrectCode {
       case 'мэллон':
         return ok(new CorrectCode(code));
       default:
-        return Result.err(CodeError.InvalidСode);
+        return err(CodeError.InvalidСode);
     }
   }
 
