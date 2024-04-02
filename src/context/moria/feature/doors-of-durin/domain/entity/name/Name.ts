@@ -1,12 +1,12 @@
 import { AppError } from '@/core/app-error/domain/entity/appError';
-import Result, { Ok, ok } from 'true-myth/result';
+import Result, { ok, err, Ok } from 'true-myth/result';
 
 export class Name {
   public string: string;
 
   static parse(rawName: string): Result<Name, AppError> {
-    if (rawName.length === 0) return Result.err(NameError.TooShort);
-    if (rawName.length > 20) return Result.err(NameError.TooLong);
+    if (rawName.length === 0) return err(NameError.TooShort);
+    if (rawName.length > 20) return err(NameError.TooLong);
 
     return ok(new Name(rawName));
   }
